@@ -48,11 +48,11 @@
             <div class="md:col-span-2 space-y-0 bg-white rounded-2xl border border-gray-100 overflow-hidden">
                 <div class="px-6 py-5 border-b border-gray-50">
                     <p class="text-xs text-gray-400 uppercase tracking-wide font-medium mb-0.5">Nama Lengkap</p>
-                    <p class="text-base font-medium text-gray-900">Faishal Mumtazah</p>
+                    <p class="text-base font-medium text-gray-900">Achmad Zulfadhlillah</p>
                 </div>
                 <div class="px-6 py-5 border-b border-gray-50">
                     <p class="text-xs text-gray-400 uppercase tracking-wide font-medium mb-0.5">NIM</p>
-                    <p class="text-base font-medium text-gray-900 font-mono">24.12.3294</p>
+                    <p class="text-base font-medium text-gray-900 font-mono">24.12.3317</p>
                 </div>
                 <div class="px-6 py-5 border-b border-gray-50">
                     <p class="text-xs text-gray-400 uppercase tracking-wide font-medium mb-0.5">Program Studi</p>
