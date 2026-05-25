@@ -11,13 +11,17 @@ class PartnerController extends Controller
     // READ + SEARCH (Soal 2 & Soal 3)
     public function index(Request $request)
     {
-        $search = $request->input('search');
+    // Mengambil input pencarian dari form (Soal 3)
+    $search = $request->query('search');
 
-        $partners = Partner::when($search, function ($query, $search) {
-            $query->where('name', 'LIKE', '%' . $search . '%');
-        })->latest()->get();
+    if ($search) {
+        // Menggunakan sintaks pencarian Eloquent LIKE (Syarat UTS Soal 3)
+        $partners = Partner::where('name', 'LIKE', "%{$search}%")->get();
+    } else {
+        $partners = Partner::all();
+    }
 
-        return view('admin.partners.index', compact('partners', 'search'));
+    return view('admin.partners.index', compact('partners'));
     }
 
     // CREATE

@@ -12,13 +12,19 @@ class CategoryController extends Controller
     // READ + SEARCH (Soal 1 & Soal 3)
     public function index(Request $request)
     {
-        $search = $request->input('search');
+    // 1. Ambil input dari kolom search html (Soal 3)
+    $search = $request->query('search');
 
-        $categories = Category::when($search, function ($query, $search) {
-            $query->where('name', 'LIKE', '%' . $search . '%');
-        })->latest()->get();
+    // 2. Jika ada input pencarian, saring data dengan klausa LIKE (Soal 3)
+    if ($search) {
+        $categories = Category::where('name', 'LIKE', "%{$search}%")->get();
+    } else {
+        // Jika tidak ada pencarian, tampilkan semua data kategori seperti biasa
+        $categories = Category::all();
+    }
 
-        return view('admin.categories.index', compact('categories', 'search'));
+    // 3. Kirim data ke view index kategori
+    return view('admin.categories.index', compact('categories'));
     }
 
     // CREATE

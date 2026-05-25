@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Partner;
 use App\Models\Category;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    // Soal 4: Ambil data Partner & Category untuk public view
     public function index()
     {
+        $events     = Event::with('category')->latest()->get();
         $partners   = Partner::all();
         $categories = Category::all();
 
-        return view('welcome', compact('partners', 'categories'));
+        return view('welcome', compact('events', 'partners', 'categories'));
     }
 
     public function profil()
